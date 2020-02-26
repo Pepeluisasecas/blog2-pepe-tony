@@ -22,7 +22,13 @@
         @include('partials.nav')
     </div>
 </header>
+@if(session()->has('flash'))
+    <div class="container">
 
+    <div class="alert alert-success">
+        {{ session('flash') }}
+    </div></div>
+@endif
 @yield('content')
 
 <section class="footer">

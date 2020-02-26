@@ -20,6 +20,10 @@ Route::get('posts', 'PagesController@home');
 Route::get('blog/{post}', 'PostsController@show')->name('posts.show');
 Route::get('categories/{category}', 'CategoriesController@show')->name('categories.show');
 Route::get('tags/{tag}', 'TagsController@show')->name('tags.show');
+Route::post('posts/{post}/comments', 'CommentController@store')->name('posts.comments.store');
+Route::resource('comments', 'CommentController',['except'=>['store'], 'as' => 'posts']);
+
+
 
 Route::group([
     'prefix' => 'admin',

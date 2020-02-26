@@ -46,8 +46,9 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
+        $comments = $post->comments;
         if ($post->isPublished() || auth()->check()) {
-            return view('posts.show', compact('post'));
+            return view('posts.show', compact('post','comments'));
         }
         abort(404);
     }
