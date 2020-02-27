@@ -165,6 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
+        App\Providers\FormServiceProvider::class,
+
 
         /*
          * Application Service Providers...

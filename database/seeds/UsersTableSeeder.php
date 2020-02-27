@@ -17,6 +17,9 @@ class UsersTableSeeder extends Seeder
         $adminRole = Role::create(['name' => 'Admin']);
         $writerRole = Role::create(['name' => 'Writer']);
 
+
+        $dashboardAccessPermission = Permission::create(['name' => 'Dashboard access']);
+
         $viewPostPermission = Permission::create(['name' => 'View posts']);
         $createPostPermission = Permission::create(['name' => 'Create posts']);
         $updatePostPermission = Permission::create(['name' => 'Update posts']);
@@ -27,8 +30,11 @@ class UsersTableSeeder extends Seeder
         $updateUserPermission = Permission::create(['name' => 'Update users']);
         $deleteUserPermission = Permission::create(['name' => 'Delete users']);
 
+        $writerRole->givePermissionTo($dashboardAccessPermission);
+        $adminRole->givePermissionTo($dashboardAccessPermission);
+
         $admin = new User;
-        $admin->name = 'Carlos Abrisqueta';
+        $admin->name = 'AA Papa';
         $admin->email = 'iescierva.carlos@gmail.com';
         $admin->password = '123456';
         $admin->save();
