@@ -3,17 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Http\Requests\StoreCommentRequest;
 use App\Post;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function store(Request $request, Post $post)
+    public function store(StoreCommentRequest $request, Post $post)
     {
-        $this->validate($request, [
-            'body' => 'required',
-        ]);
-
         if (auth()->check()) {
             $author = auth()->user()->name;
 

@@ -24,6 +24,26 @@
             </div>
         </div>
     </article>
+
+    <div class="container">
+        @if($errors->any())
+            <div class="alert alert-danger fade show" role="alert">
+                <div class="container">
+                    <span class="alert-icon">
+                        <i class="now-ui-icons ui-1_bell-53 mr-2"></i>
+                    </span>
+
+                    {!! implode($errors->all(), ' | ') !!}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">
+        <i class="now-ui-icons ui-1_simple-remove"></i>
+      </span>
+                    </button>
+                </div>
+            </div>
+        @endif
+    </div>
+
     <div class="post container">
         <form action="{{ route('posts.comments.store', $post->slug) }}" method="post" class="p-3">
             @csrf
