@@ -1,7 +1,7 @@
 <header class="container-flex space-between">
     <div class="date">
         <span class="c-gris">
-            {{ optional($post->published_at)->format('M d') }} / {{ $post->owner->name }}
+            {{ optional($post->published_at)->format('M d') }} / {{ $post->owner->name }} / {{ $post->visits.' Visitas al post' }}
         </span>
     </div>
     @if($post->category)

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PostVisit;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,9 @@ class PostsController extends Controller
     {
         $comments = $post->comments;
         if ($post->isPublished() || auth()->check()) {
+
+            PostVisit::dispatch($post);
+
             return view('posts.show', compact('post','comments'));
         }
         abort(404);

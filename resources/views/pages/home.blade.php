@@ -14,6 +14,8 @@
             <h1>{{ $post->title }}</h1>
             <div class="divider"></div>
             <p>{{ $post->excerpt }}</p>
+            <div class="divider"></div>
+            <p>{{ $post->visits.' Visitas al post' }}</p>
             <footer class="container-flex space-between">
                 <div class="read-more">
                     <a href="{{ route('posts.show', $post->slug) }}" class="text-uppercase c-green">Leer más</a>
