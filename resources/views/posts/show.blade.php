@@ -29,11 +29,6 @@
             @csrf
             @method('post')
             <div class="form-group">
-                <label for="author">Autor:</label>
-                <input type="text" name="author" value="{{ old('author') }}"
-                       class="form-control" placeholder="Por defecto: Anónimo">
-            </div>
-            <div class="form-group">
                 <label for="body">Texto:</label>
                 <textarea type="text" name="body"
                           class="form-control">{{ old('body') }}</textarea>
