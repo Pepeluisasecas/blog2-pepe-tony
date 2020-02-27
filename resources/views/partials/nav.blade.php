@@ -14,5 +14,12 @@
                 <button class="btn btn-default">Cerrar Sesión</button>
             </form>
         @endauth
+
+        @guest
+            <form action="{{ route('login') }}" method="get">
+                @csrf
+                <button class="btn btn-default">Iniciar Sesión</button>
+            </form>
+        @endguest
     </ul>
 </nav>
